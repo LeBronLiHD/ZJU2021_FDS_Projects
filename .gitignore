@@ -351,6 +351,7 @@ MigrationBackup/
 
 # vscode
 .dist/
+.vscode/
 build/
 
 1_Project_Hard/.dist/
