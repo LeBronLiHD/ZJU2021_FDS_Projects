@@ -352,3 +352,18 @@ MigrationBackup/
 # vscode
 .dist/
 build/
+
+1_Project_Hard/.dist/
+1_Project_Hard/.vscode/
+1_Project_Hard/build/
+1_Project_Hard/main.exe
+
+2_Project_Hard/.dist/
+2_Project_Hard/.vscode/
+2_Project_Hard/build/
+2_Project_Hard/main.exe
+
+3_Project_Hard/.dist/
+3_Project_Hard/.vscode/
+3_Project_Hard/build/
+3_Project_Hard/main.exe
