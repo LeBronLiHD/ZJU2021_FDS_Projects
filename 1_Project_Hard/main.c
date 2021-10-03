@@ -1,13 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 19:55:01
- * @LastEditTime: 2021-09-26 13:30:44
+ * @LastEditTime: 2021-10-04 01:07:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\main.c
  */
 
 #include "firstsolution.h"
+#include "secondsolution.h"
+#include "thirdsolution.h"
 
 /**
  * @description: 
@@ -19,9 +21,15 @@ int main()
     MATRIX M;       // definition
     init_matrix(&M);
     read_matrix(&M);
-    print_matrix(M);
-    algorithm_start();
-    SolutionOne(M);
-    algorithm_end();
+    print_matrix(&M);
+    get_cur_time();
+    solution_one(M);
+    get_cur_time();
+    solution_two(M);
+    get_cur_time();
+    print_matrix(&M);
+    solution_three(M);
+    get_cur_time();
+    display_time();
     return 0;
 }

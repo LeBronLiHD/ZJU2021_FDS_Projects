@@ -1,13 +1,24 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 20:14:35
- * @LastEditTime: 2021-09-27 09:07:12
+ * @LastEditTime: 2021-10-03 21:44:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\parameters.h
  */
 
+#pragma once
+
 #include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+const int N = 4;
 
 /**
  * @description: 
@@ -41,8 +52,8 @@ typedef struct MATRIX
  */
 typedef struct SUBMAT
 {
-    POINT X;
-    POINT Y;
+    POINT LeftUp;
+    POINT RightDown;
 } SUBMAT;
 
 /**
@@ -50,42 +61,20 @@ typedef struct SUBMAT
  * @param {*}
  * @return {*}
  */
-const int N = 5;
+POINT INIT_POINT = {0, 0};
 static clock_t START_TIME;
 static clock_t END_TIME;
 static clock_t TIME_COST;
 
-POINT INIT00 = {0, 0};
-
 /**
  * @description: 
  * @param {*}
  * @return {*}
  */
-void algorithm_start()
+typedef struct TIME_CHAIN
 {
-    START_TIME = clock();
-    printf("\nSTART_TIME \t= %.4f s\n", (double)START_TIME / (double)CLK_TCK);
-}
-
-/**
- * @description: 
- * @param {*}
- * @return {*}
- */
-void algorithm_end()
-{
-    END_TIME = clock();
-    printf("\nEND_TIME \t= %.4f s\n", (double)END_TIME / (double)CLK_TCK);
-    TIME_COST = END_TIME - START_TIME;
-    printf("TIME_COST \t= %.4f s\n", (double)TIME_COST / (double)CLK_TCK);
-}
-
-/**
- * @description: Test Cases
- * @return int**
- * 0 -2 -7 0
- * 9 2 -6 2
- * -4 1 -4 1
- * -1 8 0 -2
- */
+    clock_t CurTime;
+    int TimeNode;
+    struct TIME_CHAIN *NextTime;
+} * TIME_CHAIN;
+TIME_CHAIN DUMMY_TIME, CUR_TIME;

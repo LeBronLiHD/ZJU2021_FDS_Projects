@@ -1,15 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-09-27 09:06:30
+ * @LastEditTime: 2021-10-04 00:02:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\headerfile.h
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "parameters.h"
+#pragma once
+
+#include "docu_clock.h"
 
 /**
  * @description: 
@@ -31,8 +31,9 @@ void init_matrix(MATRIX *M)
     M->COLUMN = N;   // init
     M->ROW = N;      // init
     M->VALUE = NULL; // init
-    M->LeftUp = INIT00;
-    M->RightDown = INIT00;
+    M->LeftUp = INIT_POINT;
+    M->RightDown = INIT_POINT;
+    init_clock();
 }
 
 /**
@@ -40,13 +41,13 @@ void init_matrix(MATRIX *M)
  * @param {*}
  * @return {*}
  */
-void **read_matrix(MATRIX* M)
+void **read_matrix(MATRIX *M)
 {
     printf("\nInput Matrix -> %d*%d\n", N, N);
-    M->VALUE = malloc(sizeof(int) * N);
+    M->VALUE = (int **)malloc(sizeof(int) * N);
     for (int i = 0; i < N; i++)
     {
-        M->VALUE[i] = malloc(sizeof(int) * N);
+        M->VALUE[i] = (int *)malloc(sizeof(int) * N);
     }
     for (int i = 0; i < N; i++)
     {
@@ -64,14 +65,14 @@ void **read_matrix(MATRIX* M)
  * @param {*}
  * @return {*}
  */
-void print_matrix(MATRIX MAT)
+void print_matrix(const MATRIX *MAT)
 {
     printf("\nDisplay Matrix -> %d*%d\n", N, N);
-    for (int i = 0; i < MAT.ROW; i++)
+    for (int i = 0; i < MAT->ROW; i++)
     {
-        for (int j = 0; j < MAT.COLUMN; j++)
+        for (int j = 0; j < MAT->COLUMN; j++)
         {
-            printf("%d \t ", MAT.VALUE[i][j]);
+            printf("%d \t ", MAT->VALUE[i][j]);
         }
         printf("\n");
     }
@@ -82,14 +83,14 @@ void print_matrix(MATRIX MAT)
  * @param {*}
  * @return {*}
  */
-int calculate_sum(MATRIX MAT)
+int calculate_sum(const MATRIX *MAT)
 {
     int sum = 0;
-    for (int i = MAT.LeftUp.x; i <= MAT.RightDown.x; i++)
+    for (int i = MAT->LeftUp.x; i <= MAT->RightDown.x; i++)
     {
-        for (int j = MAT.LeftUp.y; j <= MAT.RightDown.y; j++)
+        for (int j = MAT->LeftUp.y; j <= MAT->RightDown.y; j++)
         {
-            sum += MAT.VALUE[i][j];
+            sum += MAT->VALUE[i][j];
         }
     }
     return sum;
@@ -100,12 +101,12 @@ int calculate_sum(MATRIX MAT)
  * @param {*}
  * @return {*}
  */
-void copy_points(SUBMAT* SubMat, MATRIX* M)
+void update_submatrix_value(SUBMAT *MaxSub, int x1, int y1, int x2, int y2)
 {
-    SubMat->X.x = M->LeftUp.x;
-    SubMat->X.y = M->LeftUp.y;
-    SubMat->Y.x = M->RightDown.x;
-    SubMat->Y.y = M->RightDown.y;
+    MaxSub->LeftUp.x = x1;
+    MaxSub->LeftUp.y = y1;
+    MaxSub->RightDown.x = x2;
+    MaxSub->RightDown.y = y2;
 }
 
 /**
@@ -113,10 +114,30 @@ void copy_points(SUBMAT* SubMat, MATRIX* M)
  * @param {*}
  * @return {*}
  */
-void copy_submatrix(SUBMAT* MaxSub, MATRIX* M)
+void copy_points(SUBMAT *SubMat, MATRIX *M)
 {
-    M->LeftUp.x = MaxSub->X.x;
-    M->LeftUp.y = MaxSub->X.y;
-    M->RightDown.x = MaxSub->Y.x;
-    M->RightDown.y = MaxSub->Y.y;
+    update_submatrix_value(SubMat, M->LeftUp.x, M->LeftUp.y, M->RightDown.x, M->RightDown.y);
+}
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+void copy_submatrix(SUBMAT *MaxSub, MATRIX *M)
+{
+    M->LeftUp.x = MaxSub->LeftUp.x;
+    M->LeftUp.y = MaxSub->LeftUp.y;
+    M->RightDown.x = MaxSub->RightDown.x;
+    M->RightDown.y = MaxSub->RightDown.y;
+}
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+void update_submatrix_point(SUBMAT *MaxSub, POINT *LeftUp, POINT *RightDown)
+{
+    update_submatrix_value(MaxSub, LeftUp->x, LeftUp->y, RightDown->x, RightDown->y);
 }
