@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-03 23:16:52
- * @LastEditTime: 2021-10-04 09:42:49
+ * @LastEditTime: 2021-10-04 09:48:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\solutionthree.h
@@ -19,9 +19,10 @@
 void solution_three(MATRIX M)
 {
     SUBMAT MaxSub = {{0, 0}, {0, 0}};
+    int AllMinus = max_element(&M) < 0;
     int MaxSum = 0, CurSum = 0;
     int *MaxCol = (int *)malloc(sizeof(int) * N);
-    for (int left = 0; left < N; left++)
+    for (int left = 0; left < N && AllMinus != 1; left++)
     {
         for (int i = 0; i < N; i++)
         {

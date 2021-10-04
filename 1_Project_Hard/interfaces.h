@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-10-04 00:02:34
+ * @LastEditTime: 2021-10-04 09:46:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\headerfile.h
@@ -76,6 +76,27 @@ void print_matrix(const MATRIX *MAT)
         }
         printf("\n");
     }
+}
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+int max_element(const MATRIX *MAT)
+{
+    int MaxEle = MAT->VALUE[0][0];
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (MAT->VALUE[i][j] > MaxEle)
+            {
+                MaxEle = MAT->VALUE[i][j];
+            }
+        }
+    }
+    return MaxEle;
 }
 
 /**
