@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-03 23:16:52
- * @LastEditTime: 2021-10-04 01:06:31
+ * @LastEditTime: 2021-10-04 09:42:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\solutionthree.h
@@ -34,6 +34,7 @@ void solution_three(MATRIX M)
                 MaxCol[i] += M.VALUE[i][right];
             }
             int up = 0, down = 0;
+            CurSum = 0;
             for (int i = 0; i < N; i++)
             {
                 CurSum += MaxCol[i];
@@ -43,10 +44,10 @@ void solution_three(MATRIX M)
                     MaxSum = CurSum;
                     update_submatrix_value(&MaxSub, up, left, down, right);
                 }
-                if (CurSum < 0)
+                if (CurSum <= 0)
                 {
                     CurSum = 0;
-                    up = i;
+                    up = i + 1;
                 }
             }
         }

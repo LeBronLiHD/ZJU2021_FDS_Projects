@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 19:55:01
- * @LastEditTime: 2021-10-04 01:07:27
+ * @LastEditTime: 2021-10-04 09:36:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\main.c
@@ -27,7 +27,6 @@ int main()
     get_cur_time();
     solution_two(M);
     get_cur_time();
-    print_matrix(&M);
     solution_three(M);
     get_cur_time();
     display_time();

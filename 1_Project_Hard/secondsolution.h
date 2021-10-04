@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-03 21:26:33
- * @LastEditTime: 2021-10-04 01:11:27
+ * @LastEditTime: 2021-10-04 09:35:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\secondsolution.h
@@ -18,6 +18,18 @@
  */
 void solution_two(MATRIX M)
 {
+    int **copy = (int **)malloc(sizeof(int) * N);
+    for (int i = 0; i < N; i++)
+    {
+        copy[i] = (int *)malloc(sizeof(int) * N);
+    }
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            copy[i][j] = M.VALUE[i][j];
+        }
+    }
     SUBMAT MaxSub = {{0, 0}, {0, 0}};
     int MaxSum = 0, CurSum = 0;
     for (int i = 0; i < N; i++)
@@ -79,6 +91,13 @@ void solution_two(MATRIX M)
                     }
                 }
             }
+        }
+    }
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            M.VALUE[i][j] = copy[i][j];
         }
     }
     copy_submatrix(&MaxSub, &M);
