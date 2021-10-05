@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-10-05 13:59:12
+ * @LastEditTime: 2021-10-05 15:03:39
  * @LastEditors: Please set LastEditors
  * @Description: Some functions to support algorithm in higher layer
  * @FilePath: \1_Project_Hard\headerfile.h
@@ -28,10 +28,10 @@ void hello_world()
  */
 int get_random_number()
 {
-    int seed = rand() % 101 - 50;   // Definition of seed
-    srand(seed);                    // srand the seed to ensure randomness
-    return rand() % 101 - 50;       // rand() % 101 -> 0 ~ 100
-                                    // rand() % 101 - 50 -> -50 ~ 50
+    int seed = rand() % 101 - 50; // Definition of seed
+    srand(seed);                  // srand the seed to ensure randomness
+    return rand() % 101 - 50;     // rand() % 101 -> 0 ~ 100
+                                  // rand() % 101 - 50 -> -50 ~ 50
 }
 
 /**
@@ -57,12 +57,12 @@ void init_matrix(MATRIX *M)
         printf("E: file:interfaces.h line:54 Only 0 and 1 wanted!");
         break;
     }
-    M->COLUMN = N;              // initialize COLUMN
-    M->ROW = N;                 // initialize ROW
-    M->VALUE = NULL;            // initialize VALUE
-    M->LeftUp = INIT_POINT;     // initialize LeftUp
-    M->RightDown = INIT_POINT;  // initialize RightDown
-    init_clock();               // initialize machine clock
+    M->COLUMN = N;             // initialize COLUMN
+    M->ROW = N;                // initialize ROW
+    M->VALUE = NULL;           // initialize VALUE
+    M->LeftUp = INIT_POINT;    // initialize LeftUp
+    M->RightDown = INIT_POINT; // initialize RightDown
+    init_clock();              // initialize machine clock
 }
 
 /**
@@ -74,15 +74,15 @@ void read_matrix_manually(MATRIX *M)
 {
     printf("\nInput Matrix Manually -> %d*%d\n", N, N);
     M->VALUE = (int **)malloc(sizeof(int) * N); // allocate memory space
-    for (int i = 0; i < N; i++)
+    int i = 0, j = 0, unit = 0;
+    for (i = 0; i < N; i++)
     {
         M->VALUE[i] = (int *)malloc(sizeof(int) * N);
     }
-    for (int i = 0; i < N; i++)
+    for (i = 0; i < N; i++)
     {
-        for (int j = 0; j < N; j++)
+        for (j = 0; j < N; j++)
         {
-            int unit;
             scanf("%d", &unit); // input the value manually
             M->VALUE[i][j] = unit;
         }
@@ -97,17 +97,17 @@ void read_matrix_manually(MATRIX *M)
 void read_matrix_automatically(MATRIX *M)
 {
     printf("\nInput Matrix Automatically -> %d*%d\n", N, N);
-    M->VALUE = (int **)malloc(sizeof(int) * (N + 1)); 
+    M->VALUE = (int **)malloc(sizeof(int) * (N + 1));
     // allocate memory space, use N + 1 to avoid segmentation fault
-    for (int i = 0; i < N; i++)
+    int i = 0, j = 0, unit = 0;
+    for (i = 0; i < N; i++)
     {
         M->VALUE[i] = (int *)malloc(sizeof(int) * (N + 1));
     }
-    for (int i = 0; i < N; i++)
+    for (i = 0; i < N; i++)
     {
-        for (int j = 0; j < N; j++)
+        for (j = 0; j < N; j++)
         {
-            int unit;
             unit = get_random_number(); // get the random value
             M->VALUE[i][j] = unit;
         }
@@ -124,10 +124,10 @@ void read_matrix(MATRIX *M)
     switch (IS_MANUAL_OR_AUTO)
     {
     case 0:
-        read_matrix_automatically(M);   // set values of matrix automatically
+        read_matrix_automatically(M); // set values of matrix automatically
         break;
     case 1:
-        read_matrix_manually(M);        // set values of matrix manually
+        read_matrix_manually(M); // set values of matrix manually
         break;
     default:
         printf("E: file:interfaces.h line:132 Only 0 and 1 wanted!");
@@ -140,12 +140,13 @@ void read_matrix(MATRIX *M)
  * @param {const MATRIX *MAT}
  * @return {*}
  */
-void print_matrix(const MATRIX *MAT)    // use const for protection
+void print_matrix(const MATRIX *MAT) // use const for protection
 {
     printf("\nDisplay Matrix -> %d*%d\n", N, N);
-    for (int i = 0; i < MAT->ROW; i++)
+    int i = 0, j = 0;
+    for (i = 0; i < MAT->ROW; i++)
     {
-        for (int j = 0; j < MAT->COLUMN; j++)
+        for (j = 0; j < MAT->COLUMN; j++)
         {
             printf("%d \t ", MAT->VALUE[i][j]);
         }
@@ -158,12 +159,13 @@ void print_matrix(const MATRIX *MAT)    // use const for protection
  * @param {const MATRIX *MAT}
  * @return {int MaxEle}
  */
-int max_element(const MATRIX *MAT)  // use const for protection
+int max_element(const MATRIX *MAT) // use const for protection
 {
     int MaxEle = MAT->VALUE[0][0];
-    for (int i = 0; i < N; i++)
+    int i = 0, j = 0;
+    for (i = 0; i < N; i++)
     {
-        for (int j = 0; j < N; j++)
+        for (j = 0; j < N; j++)
         {
             if (MAT->VALUE[i][j] > MaxEle)
             {
@@ -179,12 +181,13 @@ int max_element(const MATRIX *MAT)  // use const for protection
  * @param {const MATRIX *MAT}
  * @return {int sum}
  */
-int calculate_sum(const MATRIX *MAT)    // use const for protection
+int calculate_sum(const MATRIX *MAT) // use const for protection
 {
     int sum = 0;
-    for (int i = MAT->LeftUp.x; i <= MAT->RightDown.x; i++)
+    int i = 0, j = 0;
+    for (i = MAT->LeftUp.x; i <= MAT->RightDown.x; i++)
     {
-        for (int j = MAT->LeftUp.y; j <= MAT->RightDown.y; j++)
+        for (j = MAT->LeftUp.y; j <= MAT->RightDown.y; j++)
         {
             sum += MAT->VALUE[i][j];
         }
