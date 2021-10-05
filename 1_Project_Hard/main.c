@@ -12,7 +12,7 @@
 #include "thirdsolution.h"
 
 /**
- * @description: 
+ * @description: main() function of the entire project 
  * @param {*}
  * @return {*}
  */
