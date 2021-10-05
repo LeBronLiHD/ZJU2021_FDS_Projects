@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:01
- * @LastEditTime: 2021-10-05 21:52:48
+ * @LastEditTime: 2021-10-05 22:50:25
  * @LastEditors: Please set LastEditors
  * @Description: The main() function of the project
  * @FilePath: \1_Project_Hard\main.c
@@ -34,5 +34,6 @@ int main()
     get_cur_time();     // Get fourth current time and document it, 
                         // we can calculate the time spent in solution three
     display_time();     // Calculate the time spent in each solution, and display them
+    system("pause");
     return 0;
 }
