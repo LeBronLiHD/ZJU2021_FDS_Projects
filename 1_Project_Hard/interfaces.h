@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-10-05 15:03:39
+ * @LastEditTime: 2021-10-05 18:57:13
  * @LastEditors: Please set LastEditors
  * @Description: Some functions to support algorithm in higher layer
  * @FilePath: \1_Project_Hard\headerfile.h
@@ -43,15 +43,17 @@ void init_matrix(MATRIX *M)
 {
     printf("\nInput the Value of N -> ");
     scanf("%d", &N);
+    printf("\nInput the Value of K -> ");
+    scanf("%d", &K);
     printf("Is Manually(1) or Automatically(0) -> ");
     scanf("%d", &IS_MANUAL_OR_AUTO);
     switch (IS_MANUAL_OR_AUTO)
     {
     case 0:
-        printf("\nN = %d, Automatically", N);
+        printf("\nN = %d, Automatically, Repeat = %d", N, K);
         break;
     case 1:
-        printf("\nN = %d, Manually", N);
+        printf("\nN = %d, Manually, Repeat = %d", N, K);
         break;
     default:
         printf("E: file:interfaces.h line:54 Only 0 and 1 wanted!");

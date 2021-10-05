@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-10-03 21:26:33
- * @LastEditTime: 2021-10-05 14:57:58
+ * @LastEditTime: 2021-10-05 19:01:43
  * @LastEditors: Please set LastEditors
  * @Description: Find the maximum submatrix, algorithm 2
  * @FilePath: \1_Project_Hard\thirdsolution.h
@@ -16,21 +16,9 @@
  * @param {MATRIX *M}
  * @return {*}
  */
-void solution_three(MATRIX M) // Not using pointers as parameter for protection
+void solution_three_true(MATRIX M) // Not using pointers as parameter for protection
 {
-    // int **copy = (int **)malloc(sizeof(int) * (N + 1)); // copy is the copy of M.VALUE
     int i = 0, j = 0;
-    // for (i = 0; i < N; i++)
-    // {
-    //     copy[i] = (int *)malloc(sizeof(int) * (N + 1));
-    // }
-    // for (i = 0; i < N; i++)
-    // {
-    //     for (j = 0; j < N; j++)
-    //     {
-    //         copy[i][j] = M.VALUE[i][j];
-    //     }
-    // }
     SUBMAT MaxSub = {{0, 0}, {0, 0}};
     int MaxSum = 0, CurSum = 0;
     // first, we modify the original matrix, in order to satisfy
@@ -103,16 +91,22 @@ void solution_three(MATRIX M) // Not using pointers as parameter for protection
             }
         }
     }
-    // let M.VALUE back to its original state
-    // for (i = 0; i < N; i++)
-    // {
-    //     for (j = 0; j < N; j++)
-    //     {
-    //         M.VALUE[i][j] = copy[i][j];
-    //     }
-    // }
     copy_submatrix(&MaxSub, &M);
     printf("\nCalculation of Solution three Done!\nSub Matrix \t-> from (%d, %d) to (%d, %d)\n",
            M.LeftUp.x + 1, M.LeftUp.y + 1, M.RightDown.x + 1, M.RightDown.y + 1);
     printf("Max Sum \t-> %d\n", MaxSum);
+}
+
+/**
+ * @description: solution three with repeation of K times
+ * @param {MATRIX M}
+ * @return {*}
+ */
+void solution_three(MATRIX M)
+{
+    int i = 0;
+    for (i = 0; i < K; i++)
+    {
+        solution_three_true(M);
+    }
 }

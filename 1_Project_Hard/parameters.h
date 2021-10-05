@@ -1,8 +1,8 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 20:14:35
- * @LastEditTime: 2021-10-05 12:56:01
- * @LastEditors: LeBronLiHD
+ * @LastEditTime: 2021-10-05 18:56:20
+ * @LastEditors: Please set LastEditors
  * @Description: Declaration of structs and global variables
  * @FilePath: \1_Project_Hard\parameters.h
  */
@@ -12,6 +12,14 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+/**
+ * @description: repeat the function calls for K times to obtain a total run time, 
+ *               to avoid runing so quickly that it takes less than a tick to finish
+ * @param {*}
+ * @return {*}
+ */
+int K = 1;
 
 /**
  * @description: the scale of matrix(N*N)

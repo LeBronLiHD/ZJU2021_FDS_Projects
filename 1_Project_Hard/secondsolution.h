@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-10-03 23:16:52
- * @LastEditTime: 2021-10-05 14:59:07
+ * @LastEditTime: 2021-10-05 18:59:45
  * @LastEditors: Please set LastEditors
  * @Description: Find the maximum submatrix, algorithm 3
  * @FilePath: \1_Project_Hard\secondsolution.h
@@ -16,7 +16,7 @@
  * @param {MATRIX M}
  * @return {*}
  */
-void solution_two(MATRIX M) // Not using pointers as parameter for protection
+void solution_two_true(MATRIX M) // Not using pointers as parameter for protection
 {
     SUBMAT MaxSub = {{0, 0}, {0, 0}};
     int AllMinus = max_element(&M) < 0;
@@ -63,4 +63,19 @@ void solution_two(MATRIX M) // Not using pointers as parameter for protection
     printf("\nCalculation of Solution two Done!\nSub Matrix \t-> from (%d, %d) to (%d, %d)\n",
            M.LeftUp.x + 1, M.LeftUp.y + 1, M.RightDown.x + 1, M.RightDown.y + 1);
     printf("Max Sum \t-> %d\n", MaxSum);
+}
+
+/**
+ * @description: solution two with repeation of K times
+ * @param {MATRIX M}
+ * @return {*}
+ */
+void solution_two(MATRIX M)
+{
+    int i = 0;
+    for ( i = 0; i < K; i++)
+    {
+        solution_two_true(M);
+    }
+    
 }
