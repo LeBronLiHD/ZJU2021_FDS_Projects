@@ -1,9 +1,9 @@
 /*
- * @Author: your name
+ * @Author: LeBronLiHD
  * @Date: 2021-09-25 20:14:35
- * @LastEditTime: 2021-10-05 10:50:19
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @LastEditTime: 2021-10-05 12:56:01
+ * @LastEditors: LeBronLiHD
+ * @Description: Declaration of structs and global variables
  * @FilePath: \1_Project_Hard\parameters.h
  */
 
@@ -14,16 +14,22 @@
 #include <stdio.h>
 
 /**
- * @description: 
+ * @description: the scale of matrix(N*N)
  * @param {*}
  * @return {*}
  */
 int N = 0;
+
+/**
+ * @description: initialize every element of matrix manually or automatically
+ * @param {*}
+ * @return {*}
+ */
 int IS_MANUAL_OR_AUTO = 0;
 
 /**
- * @description: 
- * @param {*}
+ * @description: struct POINT, just x and y
+ * @param {int x, int y}
  * @return {*}
  */
 typedef struct POINT
@@ -33,8 +39,8 @@ typedef struct POINT
 } POINT;
 
 /**
- * @description: 
- * @param {*}
+ * @description: struct MATRIX, contains basic infomation and the value of matrix
+ * @param {int **VALUE, int COLUMN, int ROW, POINT LeftUp, POINT RightDown}
  * @return {*}
  */
 typedef struct MATRIX
@@ -47,8 +53,8 @@ typedef struct MATRIX
 } MATRIX;
 
 /**
- * @description: 
- * @param {*}
+ * @description: struct SUBMAT, describe a rectangular to represent submatrix
+ * @param {POINT LeftUp, POINT RightDown}
  * @return {*}
  */
 typedef struct SUBMAT
@@ -58,7 +64,7 @@ typedef struct SUBMAT
 } SUBMAT;
 
 /**
- * @description: 
+ * @description: Declaration of INIT_POINT, START_TIME, END_TIME and TIME_COST
  * @param {*}
  * @return {*}
  */
@@ -68,8 +74,8 @@ static clock_t END_TIME;
 static clock_t TIME_COST;
 
 /**
- * @description: 
- * @param {*}
+ * @description: Declaration of struct TIME_CHAIN, a linked list of time nodes
+ * @param {clock_t CurTime, int TimeNode and struct TIME_CHAIN *NextTime}
  * @return {*}
  */
 typedef struct TIME_CHAIN

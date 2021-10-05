@@ -1,9 +1,9 @@
 /*
- * @Author: your name
+ * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:01
- * @LastEditTime: 2021-10-05 10:48:03
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @LastEditTime: 2021-10-05 12:37:04
+ * @LastEditors: LeBronLiHD
+ * @Description: The main() function of the project
  * @FilePath: \1_Project_Hard\main.c
  */
 
@@ -18,17 +18,21 @@
  */
 int main()
 {
-    MATRIX M;       // definition
-    init_matrix(&M);
-    read_matrix(&M);
-    print_matrix(&M);
-    get_cur_time();
-    solution_one(M);
-    get_cur_time();
-    solution_two(M);
-    get_cur_time();
-    solution_three(M);
-    get_cur_time();
-    display_time();
+    MATRIX M;           // Definition the matrix to be dealt with
+    init_matrix(&M);    // Initialize the basic infomation(rows, columns, etc.) of M
+                        // also initialize the value of N and IS_MANUAL_OR_AUTO
+    read_matrix(&M);    // Initializes the values of each element of the matrix
+    print_matrix(&M);   // Display the values of each element of the matrix 
+    get_cur_time();     // Get first current time and document it
+    solution_one(M);    // Find the maximum submatrix by solution one, O(N^6)
+    get_cur_time();     // Get second current time and document it, 
+                        // we can calculate the time spent in solution one
+    solution_two(M);    // Find the maximum submatrix by solution two, O(N^4)
+    get_cur_time();     // Get third current time and document it, 
+                        // we can calculate the time spent in solution two
+    solution_three(M);  // Find the maximum submatrix by solution three, O(N^3)
+    get_cur_time();     // Get fourth current time and document it, 
+                        // we can calculate the time spent in solution three
+    display_time();     // Calculate the time spent in each solution, and display them
     return 0;
 }

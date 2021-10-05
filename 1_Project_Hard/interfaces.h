@@ -1,9 +1,9 @@
 /*
- * @Author: your name
+ * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-10-05 10:52:15
+ * @LastEditTime: 2021-10-05 13:59:12
  * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @Description: Some functions to support algorithm in higher layer
  * @FilePath: \1_Project_Hard\headerfile.h
  */
 
@@ -12,7 +12,7 @@
 #include "docu_clock.h"
 
 /**
- * @description: 
+ * @description: simple hello_world function to test CMake build
  * @param {*}
  * @return {*}
  */
@@ -22,18 +22,21 @@ void hello_world()
 }
 
 /**
- * @description: 
+ * @description: get random number from -50 to 50
  * @param {*}
- * @return {*}
+ * @return {int random number}
  */
 int get_random_number()
 {
-    return rand() % 101 - 50;
+    int seed = rand() % 101 - 50;   // Definition of seed
+    srand(seed);                    // srand the seed to ensure randomness
+    return rand() % 101 - 50;       // rand() % 101 -> 0 ~ 100
+                                    // rand() % 101 - 50 -> -50 ~ 50
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: Initialize the basic infomation(rows, columns, etc.) of M, N and IS_MANUAL_OR_AUTO
+ * @param {MATRIX *M}
  * @return {*}
  */
 void init_matrix(MATRIX *M)
@@ -54,23 +57,23 @@ void init_matrix(MATRIX *M)
         printf("E: file:interfaces.h line:54 Only 0 and 1 wanted!");
         break;
     }
-    M->COLUMN = N;   // init
-    M->ROW = N;      // init
-    M->VALUE = NULL; // init
-    M->LeftUp = INIT_POINT;
-    M->RightDown = INIT_POINT;
-    init_clock();
+    M->COLUMN = N;              // initialize COLUMN
+    M->ROW = N;                 // initialize ROW
+    M->VALUE = NULL;            // initialize VALUE
+    M->LeftUp = INIT_POINT;     // initialize LeftUp
+    M->RightDown = INIT_POINT;  // initialize RightDown
+    init_clock();               // initialize machine clock
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: set the value of every element in matrix manually
+ * @param {MATRIX *M}
  * @return {*}
  */
 void read_matrix_manually(MATRIX *M)
 {
     printf("\nInput Matrix Manually -> %d*%d\n", N, N);
-    M->VALUE = (int **)malloc(sizeof(int) * N);
+    M->VALUE = (int **)malloc(sizeof(int) * N); // allocate memory space
     for (int i = 0; i < N; i++)
     {
         M->VALUE[i] = (int *)malloc(sizeof(int) * N);
@@ -80,39 +83,40 @@ void read_matrix_manually(MATRIX *M)
         for (int j = 0; j < N; j++)
         {
             int unit;
-            scanf("%d", &unit);
+            scanf("%d", &unit); // input the value manually
             M->VALUE[i][j] = unit;
         }
     }
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: set the value of every element in matrix automatically
+ * @param {MATRIX *M}
  * @return {*}
  */
 void read_matrix_automatically(MATRIX *M)
 {
     printf("\nInput Matrix Automatically -> %d*%d\n", N, N);
-    M->VALUE = (int **)malloc(sizeof(int) * N);
+    M->VALUE = (int **)malloc(sizeof(int) * (N + 1)); 
+    // allocate memory space, use N + 1 to avoid segmentation fault
     for (int i = 0; i < N; i++)
     {
-        M->VALUE[i] = (int *)malloc(sizeof(int) * N);
+        M->VALUE[i] = (int *)malloc(sizeof(int) * (N + 1));
     }
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
             int unit;
-            unit = get_random_number();
+            unit = get_random_number(); // get the random value
             M->VALUE[i][j] = unit;
         }
     }
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: set the value of every element in matrix in selected mode
+ * @param {MATRIX *M}
  * @return {*}
  */
 void read_matrix(MATRIX *M)
@@ -120,23 +124,23 @@ void read_matrix(MATRIX *M)
     switch (IS_MANUAL_OR_AUTO)
     {
     case 0:
-        read_matrix_automatically(M);
+        read_matrix_automatically(M);   // set values of matrix automatically
         break;
     case 1:
-        read_matrix_manually(M);
+        read_matrix_manually(M);        // set values of matrix manually
         break;
     default:
-        printf("E: file:interfaces.h line:129 Only 0 and 1 wanted!");
+        printf("E: file:interfaces.h line:132 Only 0 and 1 wanted!");
         break;
     }
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: display the matrix we initialized earlier
+ * @param {const MATRIX *MAT}
  * @return {*}
  */
-void print_matrix(const MATRIX *MAT)
+void print_matrix(const MATRIX *MAT)    // use const for protection
 {
     printf("\nDisplay Matrix -> %d*%d\n", N, N);
     for (int i = 0; i < MAT->ROW; i++)
@@ -150,11 +154,11 @@ void print_matrix(const MATRIX *MAT)
 }
 
 /**
- * @description: 
- * @param {*}
- * @return {*}
+ * @description: find the biggest element in the matrix
+ * @param {const MATRIX *MAT}
+ * @return {int MaxEle}
  */
-int max_element(const MATRIX *MAT)
+int max_element(const MATRIX *MAT)  // use const for protection
 {
     int MaxEle = MAT->VALUE[0][0];
     for (int i = 0; i < N; i++)
@@ -171,11 +175,11 @@ int max_element(const MATRIX *MAT)
 }
 
 /**
- * @description: 
- * @param {*}
- * @return {*}
+ * @description: calculate the sum of specific submatrix
+ * @param {const MATRIX *MAT}
+ * @return {int sum}
  */
-int calculate_sum(const MATRIX *MAT)
+int calculate_sum(const MATRIX *MAT)    // use const for protection
 {
     int sum = 0;
     for (int i = MAT->LeftUp.x; i <= MAT->RightDown.x; i++)
@@ -189,8 +193,8 @@ int calculate_sum(const MATRIX *MAT)
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: update the variables of specific MaxSub using four integers
+ * @param {SUBMAT *MaxSub, int x1, int y1, int x2, int y2}
  * @return {*}
  */
 void update_submatrix_value(SUBMAT *MaxSub, int x1, int y1, int x2, int y2)
@@ -202,8 +206,8 @@ void update_submatrix_value(SUBMAT *MaxSub, int x1, int y1, int x2, int y2)
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: update the variables of specific MaxSub by MATRIX M
+ * @param {SUBMAT *SubMat, MATRIX *M}
  * @return {*}
  */
 void copy_points(SUBMAT *SubMat, MATRIX *M)
@@ -212,8 +216,8 @@ void copy_points(SUBMAT *SubMat, MATRIX *M)
 }
 
 /**
- * @description: 
- * @param {*}
+ * @description: update the submatrix range of MATRIX M using SUBMAT MaxSub
+ * @param {SUBMAT *MaxSub, MATRIX *M}
  * @return {*}
  */
 void copy_submatrix(SUBMAT *MaxSub, MATRIX *M)
@@ -225,7 +229,7 @@ void copy_submatrix(SUBMAT *MaxSub, MATRIX *M)
 }
 
 /**
- * @description: 
+ * @description: update the variables of specific MaxSub by two POINTs
  * @param {*}
  * @return {*}
  */
