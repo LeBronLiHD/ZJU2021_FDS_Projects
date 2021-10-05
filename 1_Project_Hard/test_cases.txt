@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD 
  * @Date: 2021-10-03 21:10:34
- * @LastEditTime: 2021-10-05 02:29:17
+ * @LastEditTime: 2021-10-05 21:04:27
  * @LastEditors: Please set LastEditors
  * @Description: Simple test cases
  * @FilePath: \1_Project_Hard\test_cases.txt
@@ -17,5 +17,16 @@ N = 5
 1 2 3 4 5
 0 0 1 0 0
 -1 -2 -3 -4 -5
+0 0 1 0 0
 2 4 6 8 10
--1 -2 -3 -4 -5
+
+N = 1
+1
+
+N = 6
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1
