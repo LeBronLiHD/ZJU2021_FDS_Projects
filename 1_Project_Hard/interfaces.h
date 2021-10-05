@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-10-04 09:46:15
+ * @LastEditTime: 2021-10-05 10:52:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\headerfile.h
@@ -26,8 +26,34 @@ void hello_world()
  * @param {*}
  * @return {*}
  */
+int get_random_number()
+{
+    return rand() % 101 - 50;
+}
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
 void init_matrix(MATRIX *M)
 {
+    printf("\nInput the Value of N -> ");
+    scanf("%d", &N);
+    printf("Is Manually(1) or Automatically(0) -> ");
+    scanf("%d", &IS_MANUAL_OR_AUTO);
+    switch (IS_MANUAL_OR_AUTO)
+    {
+    case 0:
+        printf("\nN = %d, Automatically", N);
+        break;
+    case 1:
+        printf("\nN = %d, Manually", N);
+        break;
+    default:
+        printf("E: file:interfaces.h line:54 Only 0 and 1 wanted!");
+        break;
+    }
     M->COLUMN = N;   // init
     M->ROW = N;      // init
     M->VALUE = NULL; // init
@@ -41,9 +67,9 @@ void init_matrix(MATRIX *M)
  * @param {*}
  * @return {*}
  */
-void **read_matrix(MATRIX *M)
+void read_matrix_manually(MATRIX *M)
 {
-    printf("\nInput Matrix -> %d*%d\n", N, N);
+    printf("\nInput Matrix Manually -> %d*%d\n", N, N);
     M->VALUE = (int **)malloc(sizeof(int) * N);
     for (int i = 0; i < N; i++)
     {
@@ -57,6 +83,51 @@ void **read_matrix(MATRIX *M)
             scanf("%d", &unit);
             M->VALUE[i][j] = unit;
         }
+    }
+}
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+void read_matrix_automatically(MATRIX *M)
+{
+    printf("\nInput Matrix Automatically -> %d*%d\n", N, N);
+    M->VALUE = (int **)malloc(sizeof(int) * N);
+    for (int i = 0; i < N; i++)
+    {
+        M->VALUE[i] = (int *)malloc(sizeof(int) * N);
+    }
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            int unit;
+            unit = get_random_number();
+            M->VALUE[i][j] = unit;
+        }
+    }
+}
+
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+void read_matrix(MATRIX *M)
+{
+    switch (IS_MANUAL_OR_AUTO)
+    {
+    case 0:
+        read_matrix_automatically(M);
+        break;
+    case 1:
+        read_matrix_manually(M);
+        break;
+    default:
+        printf("E: file:interfaces.h line:129 Only 0 and 1 wanted!");
+        break;
     }
 }
 

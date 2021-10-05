@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-25 20:14:35
- * @LastEditTime: 2021-10-03 21:44:36
+ * @LastEditTime: 2021-10-05 10:50:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \1_Project_Hard\parameters.h
@@ -18,7 +18,8 @@
  * @param {*}
  * @return {*}
  */
-const int N = 4;
+int N = 0;
+int IS_MANUAL_OR_AUTO = 0;
 
 /**
  * @description: 
