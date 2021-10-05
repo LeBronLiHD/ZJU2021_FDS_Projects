@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-10-03 23:16:52
- * @LastEditTime: 2021-10-05 18:59:45
+ * @LastEditTime: 2021-10-05 19:34:52
  * @LastEditors: Please set LastEditors
  * @Description: Find the maximum submatrix, algorithm 3
  * @FilePath: \1_Project_Hard\secondsolution.h
@@ -21,7 +21,7 @@ void solution_two_true(MATRIX M) // Not using pointers as parameter for protecti
     SUBMAT MaxSub = {{0, 0}, {0, 0}};
     int AllMinus = max_element(&M) < 0;
     int MaxSum = 0, CurSum = 0;
-    int *MaxCol = malloc(sizeof(int) * N); // allocate memory space
+    int *MaxCol = malloc(sizeof(int) * SCALE); // allocate memory space
     int left = 0, i = 0, right = 0;
     for (left = 0; left < N && AllMinus != 1; left++)
     {
@@ -60,7 +60,7 @@ void solution_two_true(MATRIX M) // Not using pointers as parameter for protecti
         }
     }
     copy_submatrix(&MaxSub, &M);
-    printf("\nCalculation of Solution two Done!\nSub Matrix \t-> from (%d, %d) to (%d, %d)\n",
+    printf("\nCalculation of Solution Two Done!\nSub Matrix \t-> from (%d, %d) to (%d, %d)\n",
            M.LeftUp.x + 1, M.LeftUp.y + 1, M.RightDown.x + 1, M.RightDown.y + 1);
     printf("Max Sum \t-> %d\n", MaxSum);
 }

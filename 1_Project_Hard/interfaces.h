@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:19
- * @LastEditTime: 2021-10-05 18:57:13
+ * @LastEditTime: 2021-10-05 19:39:29
  * @LastEditors: Please set LastEditors
  * @Description: Some functions to support algorithm in higher layer
  * @FilePath: \1_Project_Hard\headerfile.h
@@ -45,15 +45,15 @@ void init_matrix(MATRIX *M)
     scanf("%d", &N);
     printf("\nInput the Value of K -> ");
     scanf("%d", &K);
-    printf("Is Manually(1) or Automatically(0) -> ");
+    printf("\nIs Manually(1) or Automatically(0) -> ");
     scanf("%d", &IS_MANUAL_OR_AUTO);
     switch (IS_MANUAL_OR_AUTO)
     {
     case 0:
-        printf("\nN = %d, Automatically, Repeat = %d", N, K);
+        printf("\nN = %d, Automatically, Repeat = %d\n", N, K);
         break;
     case 1:
-        printf("\nN = %d, Manually, Repeat = %d", N, K);
+        printf("\nN = %d, Manually, Repeat = %d\n", N, K);
         break;
     default:
         printf("E: file:interfaces.h line:54 Only 0 and 1 wanted!");
@@ -99,12 +99,12 @@ void read_matrix_manually(MATRIX *M)
 void read_matrix_automatically(MATRIX *M)
 {
     printf("\nInput Matrix Automatically -> %d*%d\n", N, N);
-    M->VALUE = (int **)malloc(sizeof(int) * (N + 1));
+    M->VALUE = (int **)malloc(sizeof(int) * SCALE);
     // allocate memory space, use N + 1 to avoid segmentation fault
     int i = 0, j = 0, unit = 0;
     for (i = 0; i < N; i++)
     {
-        M->VALUE[i] = (int *)malloc(sizeof(int) * (N + 1));
+        M->VALUE[i] = (int *)malloc(sizeof(int) * SCALE);
     }
     for (i = 0; i < N; i++)
     {

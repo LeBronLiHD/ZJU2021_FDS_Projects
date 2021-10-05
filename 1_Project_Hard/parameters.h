@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 20:14:35
- * @LastEditTime: 2021-10-05 18:56:20
+ * @LastEditTime: 2021-10-05 19:40:29
  * @LastEditors: Please set LastEditors
  * @Description: Declaration of structs and global variables
  * @FilePath: \1_Project_Hard\parameters.h
@@ -27,6 +27,13 @@ int K = 1;
  * @return {*}
  */
 int N = 0;
+
+/**
+ * @description: Maximum matrix memory assumption scale
+ * @param {*}
+ * @return {*}
+ */
+const int SCALE = 1000;
 
 /**
  * @description: initialize every element of matrix manually or automatically
