@@ -1,7 +1,7 @@
 /*
  * @Author: LeBronLiHD
  * @Date: 2021-09-25 19:55:01
- * @LastEditTime: 2021-10-05 22:50:25
+ * @LastEditTime: 2021-10-06 11:51:42
  * @LastEditors: Please set LastEditors
  * @Description: The main() function of the project
  * @FilePath: \1_Project_Hard\main.c
@@ -10,6 +10,7 @@
 #include "firstsolution.h"
 #include "secondsolution.h"
 #include "thirdsolution.h"
+#include "thirdsolution_plus.h"
 
 /**
  * @description: main() function of the entire project 
@@ -33,6 +34,8 @@ int main()
     solution_three(M);  // Find the maximum submatrix by solution three, O(N^3)
     get_cur_time();     // Get fourth current time and document it, 
                         // we can calculate the time spent in solution three
+    solution_three_plus(M);
+    get_cur_time();
     display_time();     // Calculate the time spent in each solution, and display them
     system("pause");
     return 0;
