@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2021-11-10 15:38:32
- * @LastEditTime: 2021-11-10 18:42:16
+ * @LastEditTime: 2021-11-10 22:07:57
  * @LastEditors: Please set LastEditors
- * @Description: API of Search Tree
+ * @Description: APIs of Search Tree
  * @FilePath: \2_Project_Hard\search_tree.h
  */
 
@@ -12,8 +12,8 @@
 #include "data_structure.h"
 
 /**
- * @description: Display Current Voting Table
- * @param const int M, const int N
+ * @description: push new pair of points to the searching tree
+ * @param SEARCH_PATH SearchPath, int IndexOne, int IndexTwo
  * @return {*}
  */
 void push_path(SEARCH_PATH SearchPath, int IndexOne, int IndexTwo)
@@ -24,8 +24,8 @@ void push_path(SEARCH_PATH SearchPath, int IndexOne, int IndexTwo)
 }
 
 /**
- * @description: Display Current Voting Table
- * @param const int M, const int N
+ * @description: pop the last-in pair of the searching tree
+ * @param SEARCH_PATH SearchPath
  * @return {*}
  */
 void pop_path(SEARCH_PATH SearchPath)

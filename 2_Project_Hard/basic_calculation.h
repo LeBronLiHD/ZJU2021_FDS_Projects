@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-10 18:38:58
- * @LastEditTime: 2021-11-10 21:47:06
+ * @LastEditTime: 2021-11-10 22:07:55
  * @LastEditors: Please set LastEditors
  * @Description: Basic Mathmatical Calculation
  * @FilePath: \2_Project_Hard\basic_calculation.h
@@ -13,9 +13,9 @@
 #include "math.h"
 
 /**
- * @description: Display Current Voting Table
- * @param const int M, const int N
- * @return {*}
+ * @description: calculate the distance of two points
+ * @param POINT One, POINT Two
+ * @return double
  */
 double distance_between_points(POINT One, POINT Two)
 {
@@ -23,9 +23,9 @@ double distance_between_points(POINT One, POINT Two)
 }
 
 /**
- * @description: Display Current Voting Table
- * @param const int M, const int N
- * @return {*}
+ * @description: calculate the inner product of two vectors
+ * @param VECTOR One, VECTOR Two
+ * @return double
  */
 double inner_product(VECTOR One, VECTOR Two)
 {
@@ -33,9 +33,9 @@ double inner_product(VECTOR One, VECTOR Two)
 }
 
 /**
- * @description: Display Current Voting Table
- * @param const int M, const int N
- * @return {*}
+ * @description: calculate the length of the vector
+ * @param VECTOR Vec
+ * @return double
  */
 double length_of_vector(VECTOR Vec)
 {
@@ -43,9 +43,9 @@ double length_of_vector(VECTOR Vec)
 }
 
 /**
- * @description: Display Current Voting Table
- * @param const int M, const int N
- * @return {*}
+ * @description: calculate the cos value of angle of two vectors
+ * @param POINT Left, POINT Middle, POINT Right
+ * @return double
  */
 double cos_between_edges(POINT Left, POINT Middle, POINT Right)
 {

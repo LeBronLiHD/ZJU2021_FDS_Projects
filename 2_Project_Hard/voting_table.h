@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2021-11-10 15:37:33
- * @LastEditTime: 2021-11-10 21:49:23
+ * @LastEditTime: 2021-11-10 22:15:39
  * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: APIs of voting table
  * @FilePath: \2_Project_Hard\voting_table.h
  */
 
@@ -37,9 +37,11 @@ void DisplayCurrentVotingTable(const int M, const int N)
  */
 void InitVotingTable(const int M, const int N)
 {
+    // allocate memory space
     VOTING_TABLE = (int **)malloc(sizeof(int *) * M);
     for (int i = 0; i < M; i++)
     {
+        // allocate memory space
         VOTING_TABLE[i] = (int *)malloc(sizeof(int) * N);
     }
     for (int i = 0; i < M; i++)
@@ -53,18 +55,22 @@ void InitVotingTable(const int M, const int N)
 }
 
 /**
- * @description: Init Voting Table
- * @param const int M, const int N
- * @return {*}
+ * @description: find the best match through the voting table
+ * @param int SizeOne, int SizeTwo
+ * @return OUTPUT_LIST
  */
 OUTPUT_LIST FindBestMatch(int SizeOne, int SizeTwo)
 {
+    // allocate memory space
     OUTPUT_LIST OutputHead = (OUTPUT_LIST)malloc(sizeof(struct OutputList));
     OUTPUT_LIST OutputTail = OutputHead;
     OutputHead->next_output = NULL;
+    // allocate memory space
+    // use as a flag to judge whether the points of second polygon is processed
     int *is_matched = (int *)malloc(sizeof(int) * SizeTwo);
     for (int i = 0; i < SizeTwo; i++)
     {
+        // initialize the flag
         is_matched[i] = 0;
     }
     for (int i = 0; i < SizeOne; i++)
@@ -72,6 +78,7 @@ OUTPUT_LIST FindBestMatch(int SizeOne, int SizeTwo)
         int MaxIndex = 0;
         for (int j = 0; j < SizeTwo; j++)
         {
+            // find the biggest vote in row i
             if (VOTING_TABLE[i][j] > VOTING_TABLE[i][MaxIndex])
             {
                 MaxIndex = j;
@@ -83,7 +90,10 @@ OUTPUT_LIST FindBestMatch(int SizeOne, int SizeTwo)
             {
                 continue;
             }
+            // allocate memory space
             OUTPUT_LIST CurNode = (OUTPUT_LIST)malloc(sizeof(struct OutputList));
+            // if the biggest in row i is not aero and the point has not been counted
+            // then put the point to the final output and marked its flag
             CurNode->index_one = i + 1;
             CurNode->index_two = MaxIndex + 1;
             CurNode->next_output = NULL;
@@ -96,8 +106,8 @@ OUTPUT_LIST FindBestMatch(int SizeOne, int SizeTwo)
 }
 
 /**
- * @description: Init Voting Table
- * @param const int M, const int N
+ * @description: print the answer
+ * @param OUTPUT_LIST Output
  * @return {*}
  */
 void DisplayMatch(OUTPUT_LIST Output)
@@ -105,12 +115,14 @@ void DisplayMatch(OUTPUT_LIST Output)
     Output = Output->next_output;
     if(Output == NULL)
     {
-        printf("Error! Empty Output! file:voting_table.h line:107 function:DisplayMatch()\n");
+        // if the output is NULL, print the error massage
+        printf("Error! Empty Output! file:voting_table.h line:119 function:DisplayMatch()\n");
         return;
     }
     printf("\n");
     while (Output != NULL)
     {
+        // print the points of the output
         printf("(%d, %d)\n", Output->index_one, Output->index_two);
         Output = Output->next_output;
     }

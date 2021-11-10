@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-10 13:01:14
- * @LastEditTime: 2021-11-10 18:50:13
+ * @LastEditTime: 2021-11-10 22:16:04
  * @LastEditors: Please set LastEditors
  * @Description: definiting specific data structure
  * @FilePath: \2_Project_Hard\data_structure.h
@@ -37,7 +37,7 @@ typedef struct OutputList
 }* OUTPUT_LIST;
 
 /**
- * @description: Data Structure of the Coordination
+ * @description: Data Structure of the Coordination Point
  * @param {*}
  * @return {*}
  */
