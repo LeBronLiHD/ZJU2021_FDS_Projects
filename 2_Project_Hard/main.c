@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-29 15:50:57
- * @LastEditTime: 2021-11-10 20:33:02
+ * @LastEditTime: 2021-11-10 21:48:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \2_Project_Hard\main.c
@@ -12,7 +12,7 @@
 #include "search_path.h"
 #include "voting_table.h"
 
-const static int DEBUG_MODE = 1;
+const static int DEBUG_MODE = 0;
 const static int MAX_SIZE = 200;
 
 /**

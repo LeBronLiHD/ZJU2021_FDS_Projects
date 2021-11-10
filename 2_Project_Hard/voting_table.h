@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-10 15:37:33
- * @LastEditTime: 2021-11-10 20:30:34
+ * @LastEditTime: 2021-11-10 21:49:23
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \2_Project_Hard\voting_table.h
@@ -18,7 +18,7 @@
  */
 void DisplayCurrentVotingTable(const int M, const int N)
 {
-    printf("Current Voting Table ->");
+    printf("Current Voting Table ->\n");
     for (int i = 0; i < M; i++)
     {
         for (int j = 0; j < N; j++)
@@ -61,6 +61,7 @@ OUTPUT_LIST FindBestMatch(int SizeOne, int SizeTwo)
 {
     OUTPUT_LIST OutputHead = (OUTPUT_LIST)malloc(sizeof(struct OutputList));
     OUTPUT_LIST OutputTail = OutputHead;
+    OutputHead->next_output = NULL;
     int *is_matched = (int *)malloc(sizeof(int) * SizeTwo);
     for (int i = 0; i < SizeTwo; i++)
     {
@@ -102,7 +103,12 @@ OUTPUT_LIST FindBestMatch(int SizeOne, int SizeTwo)
 void DisplayMatch(OUTPUT_LIST Output)
 {
     Output = Output->next_output;
-    printf("\nMatch:\n");
+    if(Output == NULL)
+    {
+        printf("Error! Empty Output! file:voting_table.h line:107 function:DisplayMatch()\n");
+        return;
+    }
+    printf("\n");
     while (Output != NULL)
     {
         printf("(%d, %d)\n", Output->index_one, Output->index_two);
