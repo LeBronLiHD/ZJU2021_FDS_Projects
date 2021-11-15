@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-29 15:50:57
- * @LastEditTime: 2021-11-10 22:05:27
+ * @LastEditTime: 2021-11-10 23:49:14
  * @LastEditors: Please set LastEditors
  * @Description: Main Function of the Whole Project
  * @FilePath: \2_Project_Hard\main.c
@@ -50,5 +50,6 @@ int main()
     OUTPUT_LIST Output = FindBestMatch(M, N);
     // display the answer
     DisplayMatch(Output);
+    system("pause");
     return 0;
 }
