@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-16 23:41:00
- * @LastEditTime: 2021-12-17 06:56:50
+ * @LastEditTime: 2021-12-17 15:42:09
  * @LastEditors: Please set LastEditors
  * @Description: 3_Project_Hard
  * @FilePath: \3_Project_Hard\data_structure.h
@@ -59,3 +59,16 @@ struct PathSet
     struct PathSet *next;
 };
 typedef struct PathSet PATHSET;
+
+/**
+ * @description: Main Function of the Project
+ * @param {*}
+ * @return {*}
+ */
+struct Record
+{
+    int min;
+    int second_min;
+    bool second_exist;
+};
+typedef struct Record RECORD;
