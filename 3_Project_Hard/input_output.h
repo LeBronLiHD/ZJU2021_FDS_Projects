@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-16 19:47:00
- * @LastEditTime: 2021-12-17 06:00:05
+ * @LastEditTime: 2021-12-20 23:40:03
  * @LastEditors: Please set LastEditors
  * @Description: input graph and output the result
  * @FilePath: \3_Project_Hard\input_output.h
@@ -65,8 +65,25 @@ void show_path_length(PATH *P)
     STEP *path = P->path;
     while (path->next)
     {
-        printf("%d ", path->point);
+        printf("%d ", path->point + 1);
         path = path->next;
     }
-    printf("%d", path->point);
+    printf("%d", path->point + 1);
+}
+
+/**
+ * @description: show the graph, for debugging
+ * @param {*}
+ * @return {*}
+ */
+void show_dist(PATH **dist, int M)
+{
+    for (int i = 0; i < M; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            printf("%d\t", dist[i][j].length);
+        }
+        printf("\n");
+    }
 }
