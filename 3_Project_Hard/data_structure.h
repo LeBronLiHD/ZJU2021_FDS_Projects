@@ -1,9 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2021-12-16 23:41:00
- * @LastEditTime: 2021-12-21 01:46:22
+ * @LastEditTime: 2021-12-21 19:07:36
  * @LastEditors: Please set LastEditors
- * @Description: 3_Project_Hard
+ * @Description: global parameters and special data structures
  * @FilePath: \3_Project_Hard\data_structure.h
  */
 
@@ -14,7 +14,7 @@
 #pragma once
 
 /**
- * @description: Main Function of the Project
+ * @description: bool type
  * @param {*}
  * @return {*}
  */
@@ -26,7 +26,7 @@ enum bool
 typedef enum bool bool;
 
 /**
- * @description: Main Function of the Project
+ * @description: the steps of the path
  * @param {*}
  * @return {*}
  */
@@ -38,7 +38,7 @@ struct Step
 typedef struct Step STEP;
 
 /**
- * @description: Main Function of the Project
+ * @description: made of STEP* and the length of the path
  * @param {*}
  * @return {*}
  */
@@ -50,7 +50,7 @@ struct Path
 typedef struct Path PATH;
 
 /**
- * @description: Main Function of the Project
+ * @description: a set of paths
  * @param {*}
  * @return {*}
  */
@@ -62,7 +62,7 @@ struct PathSet
 typedef struct PathSet PATHSET;
 
 /**
- * @description: Main Function of the Project
+ * @description: record the shortest length and 2-nd shortest length
  * @param {*}
  * @return {*}
  */
@@ -75,7 +75,7 @@ struct Record
 typedef struct Record RECORD;
 
 /**
- * @description: Main Function of the Project
+ * @description: global parameters for timer
  * @param {*}
  * @return {*}
  */

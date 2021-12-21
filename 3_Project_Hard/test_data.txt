@@ -1,0 +1,101 @@
+5 6
+1 2 50
+2 3 100
+2 4 150
+3 4 130
+3 5 70
+4 5 40
+dfs -> 240 1 2 4 5
+Algorithm <1> -> Time ticks -> 2.0000 -> Time cost -> 0.0020
+dij -> 240 1 2 4 5
+Algorithm <2> -> Time ticks -> 5.0000 -> Time cost -> 0.0050
+cut -> 240 1 2 4 5
+Algorithm <3> -> Time ticks -> 2.0000 -> Time cost -> 0.0020
+
+5 6
+1 2 50
+2 3 100
+2 4 150
+3 4 130
+3 5 70
+4 5 20
+dfs -> 220 1 2 4 5
+Algorithm <1> -> Time ticks -> 2.0000 -> Time cost -> 0.0020
+dij -> 220 1 2 4 5
+Algorithm <2> -> Time ticks -> 3.0000 -> Time cost -> 0.0030
+cut -> 220 1 2 4 5
+Algorithm <3> -> Time ticks -> 2.0000 -> Time cost -> 0.0020
+
+5 4
+1 2 50
+2 3 100
+2 4 150
+3 5 70
+dfs -> Less than 2 Paths!!!!!
+Algorithm <1> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+dij -> Less than 2 Paths!!!!!
+Algorithm <2> -> Time ticks -> 2.0000 -> Time cost -> 0.0020
+cut -> Less than 2 Paths!!!!!
+Algorithm <3> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+
+11 22
+dfs -> 530 1 2 3 6 10 11
+Algorithm <1> -> Time ticks -> 3.0000 -> Time cost -> 0.0030
+dij -> 530 1 2 3 6 10 11
+Algorithm <2> -> Time ticks -> 7.0000 -> Time cost -> 0.0070
+cut -> 530 1 2 3 6 10 11
+Algorithm <3> -> Time ticks -> 3.0000 -> Time cost -> 0.0030
+
+17 37
+dfs -> 830 1 2 3 6 8 10 14 16 17
+Algorithm <1> -> Time ticks -> 10.0000 -> Time cost -> 0.0100
+dij -> 830 1 2 3 6 8 10 14 16 17
+Algorithm <2> -> Time ticks -> 8086.0000 -> Time cost -> 8.0860
+cut -> 830 1 2 3 6 8 10 14 16 17
+Algorithm <3> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+
+19 41
+dfs -> 860 1 2 3 6 8 10 14 15 18 19
+Algorithm <1> -> Time ticks -> 6.0000 -> Time cost -> 0.0060
+dij -> 860 1 2 3 6 8 10 14 15 18 19
+Algorithm <2> -> Time ticks -> 148921.0000 -> Time cost -> 148.9210
+cut -> 860 1 2 3 6 8 10 14 15 18 19
+Algorithm <3> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+
+30 68
+dfs -> 1540 1 2 3 6 8 10 14 15 18 20 23 26 27 29 30
+Algorithm <1> -> Time ticks -> 1419.0000 -> Time cost -> 1.4190
+Algorithm <2> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+cut -> 1540 1 2 3 6 10 14 15 18 20 23 27 29 30
+Algorithm <3> -> Time ticks -> 2.0000 -> Time cost -> 0.0020
+
+35 79
+dfs -> 1910 1 2 3 6 8 10 14 15 18 20 23 26 27 29 31 32 35
+Algorithm <1> -> Time ticks -> 26890.0000 -> Time cost -> 26.8900
+Algorithm <2> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+cut -> 1910 1 2 3 6 10 14 15 18 20 23 26 27 29 30 32 35
+Algorithm <3> -> Time ticks -> 4.0000 -> Time cost -> 0.0040
+
+40 90
+Algorithm <1> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+Algorithm <2> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+cut -> 2260 1 2 3 6 10 14 15 18 20 23 26 27 29 31 32 35 36 38 40
+Algorithm <3> -> Time ticks -> 5.0000 -> Time cost -> 0.0050
+
+50 113
+Algorithm <1> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+Algorithm <2> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+cut -> 2960 1 2 3 6 10 14 15 18 20 23 26 27 29 31 32 35 36 38 39 40 41 44 46 47 49 50
+Algorithm <3> -> Time ticks -> 5.0000 -> Time cost -> 0.0050
+
+70 158
+Algorithm <1> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+Algorithm <2> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+cut -> 4260 1 2 3 6 10 14 15 18 20 23 26 27 29 31 32 35 36 38 39 40 42 44 46 47 49 50 53 54 55 59 63 64 65 66 68 70
+Algorithm <3> -> Time ticks -> 16.0000 -> Time cost -> 0.0160
+
+100 224
+Algorithm <1> -> Time ticks -> 0.0000 -> Time cost -> 0.0000
+Algorithm <2> -> Time ticks -> 1.0000 -> Time cost -> 0.0010
+cut -> 6720 1 2 3 6 10 14 15 18 20 23 26 27 29 31 32 35 36 38 39 40 42 44 46 47 49 50 53 54 55 59 63 64 65 66 69 71 72 75 77 78 79 80 82 85 86 88 92 93 96 98 99 100
+Algorithm <3> -> Time ticks -> 39.0000 -> Time cost -> 0.0390
